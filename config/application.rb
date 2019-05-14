@@ -32,21 +32,19 @@ module SoftcolorApi
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
-    # [...]
-    #cors configuration
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'localhost:4200'
+        origins '*'
         resource '*', :headers => :any, :methods => [:get, :post, :options, :put, :delete]
       end
     end
     
     config.middleware.use Rack::Attack
+
     #autoloads lib folder during production
     config.eager_load_paths << Rails.root.join('lib')
 
     #autoloads lib folder during development
     config.autoload_paths << Rails.root.join('lib')
-    # [...]
   end
 end
