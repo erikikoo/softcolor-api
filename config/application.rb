@@ -37,9 +37,11 @@ module SoftcolorApi
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'
-        resource '*', :headers => :any, :methods => [:get, :post, :options, :delete, :put]
+        resource '*', :headers => :any, :methods => [:get, :post, :options, :put, :delete]
       end
     end
+    
+    config.middleware.use Rack::Attack
     #autoloads lib folder during production
     config.eager_load_paths << Rails.root.join('lib')
 
