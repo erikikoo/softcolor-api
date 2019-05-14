@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  painel_principal_title: MyString
+  painel_principal_description: MyText
+  painel_one_title: MyString
+  painel_one_description: MyText
+  painel_two_title: MyString
+  painel_two_description: MyText
+  painel_tree_title: MyString
+  painel_tree_description: MyText
+
+two:
+  painel_principal_title: MyString
+  painel_principal_description: MyText
+  painel_one_title: MyString
+  painel_one_description: MyText
+  painel_two_title: MyString
+  painel_two_description: MyText
+  painel_tree_title: MyString
+  painel_tree_description: MyText

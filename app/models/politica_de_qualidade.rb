@@ -1,0 +1,2 @@
+class PoliticaDeQualidade < ApplicationRecord
+end

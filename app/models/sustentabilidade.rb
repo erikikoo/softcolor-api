@@ -1,0 +1,2 @@
+class Sustentabilidade < ApplicationRecord
+end

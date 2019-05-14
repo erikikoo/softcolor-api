@@ -1,0 +1,2 @@
+class NossaHistorium < ApplicationRecord
+end
