@@ -1,3 +1,4 @@
+module Api::V1
 class SistemaDeImpressaosController < ApplicationController
   before_action :set_sistema_de_impressao, only: [:show, :update, :destroy]
 
@@ -48,4 +49,5 @@ class SistemaDeImpressaosController < ApplicationController
     def sistema_de_impressao_params
       params.require(:sistema_de_impressao).permit(:painel_principal_title, :painel_principal_description, :painel_one_title, :painel_one_description, :painel_two_title, :painel_two_description, :painel_tree_title, :painel_tree_description)
     end
+end
 end

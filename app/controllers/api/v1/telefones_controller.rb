@@ -1,3 +1,4 @@
+module Api::V1
 class TelefonesController < ApplicationController
   before_action :set_telefone, only: [:show, :update, :destroy, :status]
   before_action :get_all_telefones, only: [:index]
@@ -65,4 +66,5 @@ class TelefonesController < ApplicationController
     def telefone_params
       params.require(:telefone).permit(:numero, :principal)
     end
+end
 end

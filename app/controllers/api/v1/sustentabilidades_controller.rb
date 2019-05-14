@@ -1,3 +1,4 @@
+module Api::V1
 class SustentabilidadesController < ApplicationController
   before_action :set_sustentabilidade, only: [:show, :update, :destroy]
 
@@ -48,4 +49,5 @@ class SustentabilidadesController < ApplicationController
     def sustentabilidade_params
       params.require(:sustentabilidade).permit(:painel_title, :painel_description)
     end
+end
 end

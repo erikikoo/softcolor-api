@@ -1,3 +1,4 @@
+module Api::V1
 class PoliticaDeQualidadesController < ApplicationController
   before_action :set_politica_de_qualidade, only: [:show, :update, :destroy]
 
@@ -48,4 +49,5 @@ class PoliticaDeQualidadesController < ApplicationController
     def politica_de_qualidade_params
       params.require(:politica_de_qualidade).permit(:painel_one_title, :painel_one_description, :painel_two_title, :painel_two_description)
     end
+end
 end

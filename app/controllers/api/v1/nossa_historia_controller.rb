@@ -1,3 +1,4 @@
+module Api::V1
 class NossaHistoriaController < ApplicationController
   before_action :set_nossa_historium, only: [:show, :update, :destroy]
 
@@ -48,4 +49,5 @@ class NossaHistoriaController < ApplicationController
     def nossa_historium_params
       params.require(:nossa_historium).permit(:painel_title, :painel_description)
     end
+end
 end

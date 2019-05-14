@@ -1,3 +1,4 @@
+module Api::V1
 class QuemSomosController < ApplicationController
   before_action :set_quem_somo, only: [:show, :update, :destroy]
 
@@ -48,4 +49,5 @@ class QuemSomosController < ApplicationController
     def quem_somo_params
       params.require(:quem_somo).permit(:painel_title, :painel_description)
     end
+end
 end

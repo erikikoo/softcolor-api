@@ -1,3 +1,4 @@
+module Api::V1
 class MaterialColetadosController < ApplicationController
   before_action :set_material_coletado, only: [:show, :update, :destroy]
 
@@ -48,4 +49,5 @@ class MaterialColetadosController < ApplicationController
     def material_coletado_params
       params.require(:material_coletado).permit(:ano, :qnt_plastico, :qnt_aparas, :qnt_fotolitos, :qnt_ferro, :qnt_papelao, :qnt_aluminio)
     end
+end
 end

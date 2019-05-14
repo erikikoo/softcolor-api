@@ -1,3 +1,4 @@
+module Api::V1
 class HomesController < ApplicationController
   before_action :set_home, only: [:show, :update, :destroy]
 
@@ -48,4 +49,5 @@ class HomesController < ApplicationController
     def home_params
       params.require(:home).permit(:painel_one_title, :painel_one_description, :painel_two_title, :painel_two_description)
     end
+end
 end

@@ -1,3 +1,4 @@
+module Api::V1
 class ContatosController < ApplicationController
   before_action :set_contato, only: [:show, :update, :destroy, :status]
   before_action :get_all_contato, only: [:index, :status]
@@ -60,4 +61,5 @@ class ContatosController < ApplicationController
     def contato_params
       params.require(:contato).permit(:endereco, :numero, :bairro, :cidade, :estado, :cep)
     end
+end
 end

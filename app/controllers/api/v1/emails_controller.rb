@@ -1,3 +1,4 @@
+module Api::V1
 class EmailsController < ApplicationController
   before_action :set_email, only: [:show, :update, :destroy, :status]
   before_action :get_all_email, only: [:index, :status]
@@ -69,4 +70,5 @@ class EmailsController < ApplicationController
       
       params.require(:email).permit(:email, :principal)
     end
+end
 end

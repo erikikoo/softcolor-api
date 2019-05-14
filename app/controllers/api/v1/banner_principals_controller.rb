@@ -1,3 +1,4 @@
+module Api::V1
 class BannerPrincipalsController < ApplicationController
   before_action :set_banner_principal, only: [:show, :update, :destroy]
 
@@ -65,4 +66,5 @@ class BannerPrincipalsController < ApplicationController
       # params.fetch(:banner_principal, {})
       params.require(:banner).permit(:image)      
     end
+end
 end

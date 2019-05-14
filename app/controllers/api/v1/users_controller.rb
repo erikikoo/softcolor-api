@@ -1,3 +1,4 @@
+module Api::V1
 class UsersController < ApplicationController
   # before_action :set_user, only: [:show, :update, :destroy]
 
@@ -83,4 +84,5 @@ class UsersController < ApplicationController
         render json: { error: command.errors }, status: :unauthorized
       end
      end
+end
 end

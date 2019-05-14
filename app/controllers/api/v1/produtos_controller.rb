@@ -1,3 +1,4 @@
+module Api::V1
 class ProdutosController < ApplicationController
   before_action :set_produto, only: [:update, :destroy]
 
@@ -64,4 +65,5 @@ class ProdutosController < ApplicationController
     def produto_params
       params.require(:produto).permit(:title, :description, :image)
     end
+end
 end
