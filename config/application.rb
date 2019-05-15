@@ -46,7 +46,7 @@ module SoftcolorApi
     config.middleware.use Rack::Attack
 
     config.action_dispatch.default_headers = {
-    'Access-Control-Allow-Origin' => '127.0.0.7:4000/api/v1',
+    'Access-Control-Allow-Origin' => '127.0.0.7:4200/api/v1',
     'Access-Control-Request-Method' => %w{GET POST OPTIONS PUT DELETE}.join(",")
   }
 
