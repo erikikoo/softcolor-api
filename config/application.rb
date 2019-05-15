@@ -45,6 +45,11 @@ module SoftcolorApi
     
     config.middleware.use Rack::Attack
 
+    config.action_dispatch.default_headers = {
+    'Access-Control-Allow-Origin' => 'http://my-web-service-consumer-site.com',
+    'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(",")
+  }
+
     #autoloads lib folder during production
     config.eager_load_paths << Rails.root.join('lib')
 
