@@ -33,12 +33,15 @@ module SoftcolorApi
     config.api_only = true
    
 
-    config.middleware.insert_before ActionDispatch::Static, Rack::Cors do
+    config.middleware.use Rack::Cors do
       allow do
         origins '*'
-        resource '*', :headers => :any, :methods => [:get, :post, :put, :patch, :delete, :options, :head]
+        resource '*',
+          headers: :any,
+          expose: ['access-token', 'expiry', 'token-type', 'uid', 'client'],
+          methods: [:get, :post, :options, :delete, :put]
       end
-    end  
+    end
     
     config.middleware.use Rack::Attack
 
