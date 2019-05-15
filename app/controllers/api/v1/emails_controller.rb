@@ -2,7 +2,7 @@ module Api::V1
 class EmailsController < ApplicationController
   before_action :set_email, only: [:show, :update, :destroy, :status]
   before_action :get_all_email, only: [:index, :status]
-
+  skip_before_action :authenticate_request, only: [:index]
   # GET /emails
   def index
     render json: @emails

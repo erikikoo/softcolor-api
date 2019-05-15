@@ -1,7 +1,7 @@
 module Api::V1
 class BannerPrincipalsController < ApplicationController
   before_action :set_banner_principal, only: [:show, :update, :destroy]
-
+  skip_before_action :authenticate_request, only: [:index]
   # GET /banner_principals
   def index
     

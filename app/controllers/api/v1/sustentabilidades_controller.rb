@@ -1,6 +1,7 @@
 module Api::V1
 class SustentabilidadesController < ApplicationController
   before_action :set_sustentabilidade, only: [:show, :update, :destroy]
+  skip_before_action :authenticate_request, only: [:index]
 
   # GET /sustentabilidades
   def index

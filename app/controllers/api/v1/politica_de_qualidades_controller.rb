@@ -1,6 +1,7 @@
 module Api::V1
 class PoliticaDeQualidadesController < ApplicationController
   before_action :set_politica_de_qualidade, only: [:show, :update, :destroy]
+  skip_before_action :authenticate_request, only: [:index]
 
   # GET /politica_de_qualidades
   def index

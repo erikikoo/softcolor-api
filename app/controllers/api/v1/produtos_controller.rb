@@ -1,6 +1,7 @@
 module Api::V1
 class ProdutosController < ApplicationController
   before_action :set_produto, only: [:update, :destroy]
+  skip_before_action :authenticate_request, only: [:index]
 
   # GET /produtos
   def index

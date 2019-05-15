@@ -1,6 +1,7 @@
 module Api::V1
 class SistemaDeImpressaosController < ApplicationController
   before_action :set_sistema_de_impressao, only: [:show, :update, :destroy]
+  skip_before_action :authenticate_request, only: [:index]
 
   # GET /sistema_de_impressaos
   def index

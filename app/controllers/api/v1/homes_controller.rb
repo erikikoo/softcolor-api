@@ -1,7 +1,7 @@
 module Api::V1
 class HomesController < ApplicationController
   before_action :set_home, only: [:show, :update, :destroy]
-
+  skip_before_action :authenticate_request, only: [:index]
   # GET /homes
   def index
     @homes = Home.last

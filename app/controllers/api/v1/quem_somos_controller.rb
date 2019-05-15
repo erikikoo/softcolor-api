@@ -1,6 +1,7 @@
 module Api::V1
 class QuemSomosController < ApplicationController
   before_action :set_quem_somo, only: [:show, :update, :destroy]
+  skip_before_action :authenticate_request, only: [:index]
 
   # GET /quem_somos
   def index

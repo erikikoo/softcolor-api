@@ -1,7 +1,7 @@
 module Api::V1
 class MaterialColetadosController < ApplicationController
   before_action :set_material_coletado, only: [:show, :update, :destroy]
-
+  skip_before_action :authenticate_request, only: [:index]
   # GET /material_coletados
   def index
     @material_coletados = MaterialColetado.last

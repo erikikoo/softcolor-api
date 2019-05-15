@@ -1,6 +1,7 @@
 module Api::V1
 class NossaHistoriaController < ApplicationController
   before_action :set_nossa_historium, only: [:show, :update, :destroy]
+  skip_before_action :authenticate_request, only: [:index]
 
   # GET /nossa_historia
   def index

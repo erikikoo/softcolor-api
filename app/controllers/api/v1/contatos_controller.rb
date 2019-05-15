@@ -2,6 +2,7 @@ module Api::V1
 class ContatosController < ApplicationController
   before_action :set_contato, only: [:show, :update, :destroy, :status]
   before_action :get_all_contato, only: [:index, :status]
+  skip_before_action :authenticate_request, only: [:index]
   # GET /contatos
   def index
     render json: @contatos
