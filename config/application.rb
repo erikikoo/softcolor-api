@@ -32,7 +32,7 @@ module SoftcolorApi
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
-    require 'rack/cors'
+    
     config.middleware.insert_before ActionDispatch::Static, Rack::Cors do
   allow do
       origins '*'
