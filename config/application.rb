@@ -32,16 +32,16 @@ module SoftcolorApi
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
-    config.middleware.insert_before 0, Rack::Cors do
-      allow do
-        origins '*'
-        resource '*',
-        headers: :any,
-        methods: %i(get post put patch delete options head)
-      end
-    end
+    # config.middleware.insert_before 0, Rack::Cors do
+    #   allow do
+    #     origins '*'
+    #     resource '*',
+    #     headers: :any,
+    #     methods: %i(get post put patch delete options head)
+    #   end
+    # end
     
-    config.middleware.use Rack::Attack
+    # config.middleware.use Rack::Attack
 
     #autoloads lib folder during production
     config.eager_load_paths << Rails.root.join('lib')
