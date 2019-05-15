@@ -31,29 +31,23 @@ module SoftcolorApi
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
-   
 
-    config.middleware.use Rack::Cors do
+    config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'
-        resource '*',
-          headers: :any,
-          expose: ['access-token', 'expiry', 'token-type', 'uid', 'client'],
-          methods: [:get, :post, :options, :delete, :put]
+        resource '*', :headers => :any, :methods => [:get, :post, :options, :put, :delete]
       end
     end
     
     config.middleware.use Rack::Attack
-
-    config.action_dispatch.default_headers = {
-    'Access-Control-Allow-Origin' => '127.0.0.7:4200/api/v1',
-    'Access-Control-Request-Method' => %w{GET POST OPTIONS PUT DELETE}.join(",")
-  }
 
     #autoloads lib folder during production
     config.eager_load_paths << Rails.root.join('lib')
 
     #autoloads lib folder during development
     config.autoload_paths << Rails.root.join('lib')
+
+    
+
   end
 end
