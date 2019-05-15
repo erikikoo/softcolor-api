@@ -33,7 +33,7 @@ module SoftcolorApi
     config.api_only = true
 
     require 'rack/cors'
-config.middleware.insert_before "ActionDispatch::Static", "Rack::Cors" do
+    config.middleware.insert_before ActionDispatch::Static, Rack::Cors do
   allow do
       origins '*'
       resource '*',
