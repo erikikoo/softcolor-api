@@ -38,6 +38,12 @@ module SoftcolorApi
       end
     
     config.middleware.use Rack::Attack
+
+        #autoloads lib folder during production
+        config.eager_load_paths << Rails.root.join('lib')
+
+        #autoloads lib folder during development
+        config.autoload_paths << Rails.root.join('lib')
     
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.

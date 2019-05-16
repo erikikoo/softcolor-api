@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   end
 
   def login
-    authenticate params[:email], params[:password]
+    authenticate params[:login], params[:password]
   end  
 
 
