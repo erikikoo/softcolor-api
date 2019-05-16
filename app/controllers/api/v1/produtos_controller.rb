@@ -5,7 +5,12 @@ class ProdutosController < ApplicationController
 
   # GET /produtos
   def index
-    getAllProductsWithImage()
+    # getAllProductsWithImage()
+    @produtos = []
+      produtos = Produto.all
+      produtos.each do |produto|      
+        @produtos << {id: produto.id, title: produto.title, description: produto.description,image: url_for(produto.image)} if produto.image.attached?
+      end
     render json: @produtos
   end
 
@@ -31,7 +36,7 @@ class ProdutosController < ApplicationController
     @produto = Produto.new(produto_params)
 
     if @produto.save
-      getAllProductsWithImage()
+      # getAllProductsWithImage()
       render json: @produtos, status: :created
     else
       render json: @produto.errors, status: :unprocessable_entity
@@ -60,7 +65,7 @@ class ProdutosController < ApplicationController
       produtos.each do |produto|      
         @produtos << {id: produto.id, title: produto.title, description: produto.description,image: url_for(produto.image)} if produto.image.attached?
       end
-      # @produtos
+      @produtos
     end
     # Use callbacks to share common setup or constraints between actions.
     def set_produto
