@@ -25,6 +25,8 @@ produtos = [
 #     Produto.create(title: produto, description: description)
 #     puts "#{produto} criado"
 # end
+puts "criando Adm"
+User.create!(password: 'HayHelena', login: 'erikikoo@hotmail.com')
 
 puts "============================================="
 puts "Atualizando INDEX"
