@@ -19,7 +19,7 @@ class AuthenticateUser
     user = User.find_by(login: login)
     return user if user && user.authenticate(password)
 
-    errors.add :user_authentication, 'Invalid credentials'
+    errors.add :user_authentication, 'Login e/ou senha inválidos!'
     nil
   end
 end
