@@ -16,12 +16,7 @@ class UsersController < ApplicationController
 
   def login
     authenticate params[:email], params[:password]
-  end
-  # def test
-  #   render json: {
-  #         message: 'You have passed authentication and authorization test'
-  #       }
-  # end
+  end  
 
 
   # # GET /users
@@ -69,7 +64,7 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.permit(:name, :email, :password)
+      params.permit(:login, :password)
     end
 
     def authenticate(email, password)
