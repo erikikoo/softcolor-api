@@ -60,7 +60,7 @@ class ProdutosController < ApplicationController
       produtos.each do |produto|      
         @produtos << {id: produto.id, title: produto.title, description: produto.description,image: url_for(produto.image)} if produto.image.attached?
       end
-      @produtos
+      # @produtos
     end
     # Use callbacks to share common setup or constraints between actions.
     def set_produto
