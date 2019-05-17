@@ -50,7 +50,7 @@ class ContatosController < ApplicationController
 
   private
     def get_all_contato
-      @contatos = Contato.select('bairro', 'cep', 'cidade', 'endereco', 'estado', 'numero').last
+      @contatos = Contato.select('bairro', 'cep', 'cidade', 'endereco', 'estado', 'numero', 'id').last
     end
     
     # Use callbacks to share common setup or constraints between actions.

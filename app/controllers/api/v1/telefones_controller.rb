@@ -2,7 +2,7 @@ module Api::V1
 class TelefonesController < ApplicationController
   before_action :set_telefone, only: [:show, :update, :destroy, :status]
   before_action :get_all_telefones, only: [:index, :destroy]
-  after_action :get_all_telefones, only: [:status]
+  after_action :get_all_telefones, only: [:create]
   skip_before_action :authenticate_request, only: [:index, :principal]
   # GET /telefones
   def index
@@ -24,7 +24,7 @@ class TelefonesController < ApplicationController
     @telefone = Telefone.new(telefone_params)
 
     if @telefone.save
-      render json: @telefone, status: :created, location: @telefone
+      render json: @telefones, status: :created
     else
       render json: @telefone.errors, status: :unprocessable_entity
     end
@@ -51,7 +51,8 @@ class TelefonesController < ApplicationController
     else
       @telefone.update(principal: true)
     end
-    # render json: @telefones
+    get_all_telefones()
+    render json: @telefones
   end
 
   private

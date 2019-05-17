@@ -68,7 +68,7 @@ class EmailsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def email_params
       
-      params.require(:email).permit(:email, :principal)
+      params.require(:email).permit(:email, :principal, :id)
     end
 end
 end
