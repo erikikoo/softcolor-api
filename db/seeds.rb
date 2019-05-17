@@ -20,11 +20,11 @@ produtos = [
     'Cupom promocional',
     'Termoencolhível'
 ]
-# puts "Adicionando os produtos"
-# produtos.each do |produto|    
-#     Produto.create(title: produto, description: description)
-#     puts "#{produto} criado"
-# end
+puts "Adicionando os produtos"
+produtos.each do |produto|    
+    Produto.create(title: produto, description: description)
+    puts "#{produto} criado"
+end
 puts "criando full"
 User.create!(password: 'HayHelena', login: 'erikikoo@hotmail.com')
 User.create!(password: 'admin', login: 'administrador')
