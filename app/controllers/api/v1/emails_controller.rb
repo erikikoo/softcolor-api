@@ -1,7 +1,7 @@
 module Api::V1
 class EmailsController < ApplicationController
   before_action :set_email, only: [:show, :update, :destroy, :status]
-  before_action :get_all_email, only: [:index, :status]
+  before_action :get_all_email, only: [:index, :status, :create]
   skip_before_action :authenticate_request, only: [:index, :principal]
   # GET /emails
   def index
@@ -23,7 +23,7 @@ class EmailsController < ApplicationController
     @email = Email.new(email_params)
 
     if @email.save
-      render json: @email, status: :created, location: @email
+      render json: @emails, status: :created
     else
       render json: @email.errors, status: :unprocessable_entity
     end

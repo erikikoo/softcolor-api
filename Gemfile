@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
 
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
 gem 'faker'
 gem 'rack-attack'
 gem 'jwt'

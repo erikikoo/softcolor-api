@@ -1,8 +1,8 @@
 module Api::V1
 class TelefonesController < ApplicationController
   before_action :set_telefone, only: [:show, :update, :destroy, :status]
-  before_action :get_all_telefones, only: [:index]
-  after_action :get_all_telefones, only: [:status, :destroy]
+  before_action :get_all_telefones, only: [:index, :destroy]
+  after_action :get_all_telefones, only: [:status]
   skip_before_action :authenticate_request, only: [:index, :principal]
   # GET /telefones
   def index

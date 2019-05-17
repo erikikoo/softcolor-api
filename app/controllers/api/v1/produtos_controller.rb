@@ -1,16 +1,12 @@
 module Api::V1
-class ProdutosController < ApplicationController
+class ProdutosController < ApplicationController  
+  
   before_action :set_produto, only: [:update, :destroy]
   skip_before_action :authenticate_request, only: [:index, :all_produtos, :show]
 
   # GET /produtos
-  def index
-    # getAllProductsWithImage()
-    @produtos = []
-      produtos = Produto.all
-      produtos.each do |produto|      
-        @produtos << {id: produto.id, title: produto.title, description: produto.description,image: url_for(produto.image)} if produto.image.attached?
-      end
+  def index    
+    @produtos = Produto.select('title', 'description', 'id').all
     render json: @produtos
   end
 
@@ -21,12 +17,8 @@ class ProdutosController < ApplicationController
 
   # GET /produtos/1
   def show
-    if params[:id]
-      @produto = Produto.find_by(id: params[:id])      
-      @produto.image.attached? ? image_path = url_for(@produto.image) : ''
-      @produto = {title: @produto.title, description: @produto.description, image_path: image_path}
-    else
-      @produto = Produto.select('title', 'description').find_by(title: params[:id])
+    if params[:id]    
+      @produto = Produto.find_by(id: params[:id])
     end
     render json: @produto
   end
@@ -63,7 +55,7 @@ class ProdutosController < ApplicationController
       @produtos = []
       produtos = Produto.all
       produtos.each do |produto|      
-        @produtos << {id: produto.id, title: produto.title, description: produto.description,image: url_for(produto.image)} if produto.image.attached?
+        @produtos << {id: produto.id, title: produto.title, description: produto.description,image: ActionController::Base.helpers.image_url(produto.title.gsub(/ç/, 'c').parameterize, host: "http://192.168.0.13:8080/api/v1")}
       end
       @produtos
     end
@@ -76,5 +68,7 @@ class ProdutosController < ApplicationController
     def produto_params
       params.require(:produto).permit(:title, :description, :image)
     end
-end
+    
+
+  end
 end
