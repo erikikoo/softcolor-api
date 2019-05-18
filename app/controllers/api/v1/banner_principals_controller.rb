@@ -27,7 +27,7 @@ class BannerPrincipalsController < ApplicationController
       
       # render json: @banners, status: :created, location: rails_blob_path(@banner_principal.image)
       # 
-      render json: {status: :created, location: Cloudinary::Utils.cloudinary_url(rails_blob_path(@banner_principal.image))}
+      render json: {status: :created, location: Cloudinary::Utils.cloudinary_url(getImageName(rails_blob_path(@banner_principal.image)))}
     else
       render json: @banner_principal.errors, status: :unprocessable_entity
     end
@@ -68,6 +68,10 @@ class BannerPrincipalsController < ApplicationController
     def banner_principal_params
       # params.fetch(:banner_principal, {})
       params.require(:banner).permit(:image)      
+    end
+
+    def getImageName image      
+      return image.split('/').last
     end
 end
 end
