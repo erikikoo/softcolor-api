@@ -19,9 +19,10 @@ class BannerPrincipalsController < ApplicationController
 
   # POST /banner_principals
   def create
-    # @banner_principal = BannerPrincipal.new(banner_principal_params)
+    @banner_principal = BannerPrincipal.new(banner_principal_params)
 
-    @teste = Cloudinary::Uploader.upload(params[:banner])
+    @teste = Cloudinary::Uploader.upload(params[:banner][:image])
+    
     # if @banner_principal.save
 
       # getBanners()
@@ -67,8 +68,8 @@ class BannerPrincipalsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def banner_principal_params
-      # params.fetch(:banner_principal, {})
-      params.require(:banner).permit(:image)      
+      params.fetch(:banner_principal, {})
+      # params.require(:banner).permit(:image)      
     end
 
     def getImageName image      
