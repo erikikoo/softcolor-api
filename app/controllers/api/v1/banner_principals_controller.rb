@@ -30,7 +30,8 @@ class BannerPrincipalsController < ApplicationController
       
         # getBanners()
       
-        render json: @banners, status: :created
+        render json: @banner, status: :created
+        # render json: @banners, status: :created
       # end  
       # 
       # render json: {status: :created}
