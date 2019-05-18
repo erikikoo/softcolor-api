@@ -21,18 +21,19 @@ class BannerPrincipalsController < ApplicationController
   def create
     @banner_principal = BannerPrincipal.new(banner_principal_params)
 
-    @teste = Cloudinary::Uploader.upload(params[:banner][:image])
+    @banner = Cloudinary::Uploader.upload(params[:banner][:image])
     
-    # if @banner_principal.save
+    if @banner
 
-      # getBanners()
+      BannerPrincipal.create(image_url_cloudinary: @banner.secure_url)
+      getBanners()
       
-      # render json: @banners, status: :created, location: rails_blob_path(@banner_principal.image)
+      render json: @banners, status: :created)
       # 
-      render json: {status: :created, location: @teste}
-    # else
-    #   render json: @banner_principal.errors, status: :unprocessable_entity
-    # end
+      # render json: {status: :created}
+    else
+      render json: @banner_principal.errors, status: :unprocessable_entity
+    end
   end
 
   # PATCH/PUT /banner_principals/1
@@ -58,7 +59,7 @@ class BannerPrincipalsController < ApplicationController
       banner_principals = BannerPrincipal.all
     
       banner_principals.each do |banner|      
-        # @banners << {id: banner.id, image: cl_image_tag(banner.image)}# if banner.image.attached?
+        @banners << {id: banner.id, image: banner.secure_url}# if banner.image.attached?
       end
     end
     # Use callbacks to share common setup or constraints between actions.
