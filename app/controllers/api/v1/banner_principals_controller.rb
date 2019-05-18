@@ -28,7 +28,7 @@ class BannerPrincipalsController < ApplicationController
       BannerPrincipal.create(image_url_cloudinary: @banner.secure_url)
       getBanners()
       
-      render json: @banners, status: :created)
+      render json: {@banners, status: :created}
       # 
       # render json: {status: :created}
     else
