@@ -23,11 +23,14 @@ class BannerPrincipalsController < ApplicationController
 
     @banner = Cloudinary::Uploader.upload(params[:banner][:image])
     
+    puts @banner[:secure_url]
+    puts @banner.secure_url
+    puts @banner['secure_url']
 
     # if @banner
 
       # if BannerPrincipal.create(image_url_cloudinary: @banner.secure_url)
-      BannerPrincipal.create(image_url_cloudinary: @banner.url)
+      BannerPrincipal.create(image_url_cloudinary: @banner[:secure_url])
       
         # getBanners()
       
