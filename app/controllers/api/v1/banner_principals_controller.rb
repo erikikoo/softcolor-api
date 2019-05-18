@@ -21,16 +21,17 @@ class BannerPrincipalsController < ApplicationController
   def create
     @banner_principal = BannerPrincipal.new(banner_principal_params)
 
-    if @banner_principal.save
+    @teste = Cloudinary::Uploader.upload(@banner_principal)
+    # if @banner_principal.save
 
       # getBanners()
       
       # render json: @banners, status: :created, location: rails_blob_path(@banner_principal.image)
       # 
-      render json: {status: :created, location: Cloudinary::Utils.cloudinary_url(getImageName(rails_blob_path(@banner_principal.image)))}
-    else
-      render json: @banner_principal.errors, status: :unprocessable_entity
-    end
+      render json: {status: :created, location: @teste}
+    # else
+    #   render json: @banner_principal.errors, status: :unprocessable_entity
+    # end
   end
 
   # PATCH/PUT /banner_principals/1
