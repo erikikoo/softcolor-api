@@ -1,7 +1,7 @@
 module Api::V1
 class BannerPrincipalsController < ApplicationController
   before_action :set_banner_principal, only: [:show, :update, :destroy]
-  skip_before_action :authenticate_request, only: [:index, :create]
+  skip_before_action :authenticate_request, only: [:index]
   
   # GET /banner_principals
   def index
@@ -18,31 +18,19 @@ class BannerPrincipalsController < ApplicationController
   end
 
   # POST /banner_principals
-  def create
-    # @banner_principal = BannerPrincipal.new(banner_principal_params)
+  def create    
 
     @banner = Cloudinary::Uploader.upload(params[:banner][:image])
     
-    # puts @banner
-    # puts @banner[:secure_url]
-    # puts @banner.secure_url
-    puts @banner['secure_url']
-
-    # if @banner
-
-      # if BannerPrincipal.create(image_url_cloudinary: @banner.secure_url)
-      BannerPrincipal.create(image_url_cloudinary: @banner['secure_url'])
+    if @banner
+    
+      BannerPrincipal.create(image_url_cloudinary: @banner['secure_url'])       
       
-        # getBanners()
-      
-        render json: @banner, status: :created
-        # render json: @banners, status: :created
-      # end  
-      # 
-      # render json: {status: :created}
-    # else
-    #   render json: @banner_principal.errors, status: :unprocessable_entity
-    # end
+      render json: @banner, status: :created
+    
+    else
+      render json: @banner_principal.errors, status: :unprocessable_entity
+    end
   end
 
   # PATCH/PUT /banner_principals/1
