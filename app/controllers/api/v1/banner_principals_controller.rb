@@ -34,9 +34,9 @@ class BannerPrincipalsController < ApplicationController
       # end  
       # 
       # render json: {status: :created}
-    else
-      render json: @banner_principal.errors, status: :unprocessable_entity
-    end
+    # else
+    #   render json: @banner_principal.errors, status: :unprocessable_entity
+    # end
   end
 
   # PATCH/PUT /banner_principals/1
