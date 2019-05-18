@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2019_05_05_154305) do
   end
 
   create_table "banner_principals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "image_url_cloudinary"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

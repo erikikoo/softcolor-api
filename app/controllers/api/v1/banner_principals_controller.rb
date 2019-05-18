@@ -2,6 +2,7 @@ module Api::V1
 class BannerPrincipalsController < ApplicationController
   before_action :set_banner_principal, only: [:show, :update, :destroy]
   skip_before_action :authenticate_request, only: [:index]
+  
   # GET /banner_principals
   def index
     
@@ -22,9 +23,10 @@ class BannerPrincipalsController < ApplicationController
 
     if @banner_principal.save
 
-      getBanners()
+      # getBanners()
       
-      render json: @banners, status: :created, location: @banner_principal
+      # render json: @banners, status: :created, location: @banner_principal
+      render json: {status: :created, location: @banner_principal}
     else
       render json: @banner_principal.errors, status: :unprocessable_entity
     end
@@ -53,7 +55,7 @@ class BannerPrincipalsController < ApplicationController
       banner_principals = BannerPrincipal.all
     
       banner_principals.each do |banner|      
-        @banners << {id: banner.id, image: url_for(banner.image)} if banner.image.attached?
+        # @banners << {id: banner.id, image: cl_image_tag(banner.image)}# if banner.image.attached?
       end
     end
     # Use callbacks to share common setup or constraints between actions.
