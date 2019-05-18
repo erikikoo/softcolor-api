@@ -23,14 +23,15 @@ class BannerPrincipalsController < ApplicationController
 
     @banner = Cloudinary::Uploader.upload(params[:banner][:image])
     
-    if @banner
+    # if @banner
 
-      if BannerPrincipal.create(image_url_cloudinary: @banner.secure_url)
+      # if BannerPrincipal.create(image_url_cloudinary: @banner.secure_url)
+      BannerPrincipal.create(image_url_cloudinary: @banner.secure_url)
       
         getBanners()
       
         render json: @banners, status: :created
-      end  
+      # end  
       # 
       # render json: {status: :created}
     else
