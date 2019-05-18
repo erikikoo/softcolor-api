@@ -23,10 +23,11 @@ class BannerPrincipalsController < ApplicationController
 
     @banner = Cloudinary::Uploader.upload(params[:banner][:image])
     
+
     # if @banner
 
       # if BannerPrincipal.create(image_url_cloudinary: @banner.secure_url)
-      BannerPrincipal.create(image_url_cloudinary: @banner[:secure_url])
+      BannerPrincipal.create(image_url_cloudinary: @banner[:url])
       
         # getBanners()
       
@@ -63,7 +64,7 @@ class BannerPrincipalsController < ApplicationController
       banner_principals = BannerPrincipal.all
     
       banner_principals.each do |banner|      
-        @banners << {id: banner.id, image: banner.secure_url}# if banner.image.attached?
+        @banners << {id: banner.id, image: banner.image_url_cloudinary}# if banner.image.attached?
       end
     end
     # Use callbacks to share common setup or constraints between actions.
