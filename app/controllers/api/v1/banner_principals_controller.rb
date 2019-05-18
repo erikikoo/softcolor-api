@@ -1,7 +1,7 @@
 module Api::V1
 class BannerPrincipalsController < ApplicationController
   before_action :set_banner_principal, only: [:show, :update, :destroy]
-  skip_before_action :authenticate_request, only: [:index]
+  skip_before_action :authenticate_request, only: [:index, :create]
   
   # GET /banner_principals
   def index
@@ -25,9 +25,9 @@ class BannerPrincipalsController < ApplicationController
 
       # getBanners()
       
-      # render json: @banners, status: :created, location: @banner_principal
+      render json: @banners, status: :created, location: rails_blob_path(@banner_principal.image)
       
-      render json: {status: :created, location: Cloudinary::Utils.cloudinary_url(url_for(@banner_principal.image))}
+      # render json: {status: :created, location: Cloudinary::Utils.cloudinary_url(rails_blob_path(@banner_principal.image))}
     else
       render json: @banner_principal.errors, status: :unprocessable_entity
     end
