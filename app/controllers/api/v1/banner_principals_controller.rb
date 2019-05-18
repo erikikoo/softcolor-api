@@ -25,9 +25,9 @@ class BannerPrincipalsController < ApplicationController
 
       # getBanners()
       
-      render json: @banners, status: :created, location: rails_blob_path(@banner_principal.image)
-      
-      # render json: {status: :created, location: Cloudinary::Utils.cloudinary_url(rails_blob_path(@banner_principal.image))}
+      # render json: @banners, status: :created, location: rails_blob_path(@banner_principal.image)
+      # 
+      render json: {status: :created, location: Cloudinary::Utils.cloudinary_url(rails_blob_path(@banner_principal.image))}
     else
       render json: @banner_principal.errors, status: :unprocessable_entity
     end
