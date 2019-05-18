@@ -26,7 +26,7 @@ class BannerPrincipalsController < ApplicationController
     # if @banner
 
       # if BannerPrincipal.create(image_url_cloudinary: @banner.secure_url)
-      BannerPrincipal.create(image_url_cloudinary: @banner.secure_url)
+      # BannerPrincipal.create(image_url_cloudinary: @banner.secure_url)
       
         # getBanners()
       
