@@ -19,9 +19,9 @@ class BannerPrincipalsController < ApplicationController
 
   # POST /banner_principals
   def create
-    @banner_principal = BannerPrincipal.new(banner_principal_params)
+    # @banner_principal = BannerPrincipal.new(banner_principal_params)
 
-    @teste = Cloudinary::Uploader.upload(@banner_principal)
+    @teste = Cloudinary::Uploader.upload(params[:banner])
     # if @banner_principal.save
 
       # getBanners()
