@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       resources :nossa_historia
       resources :quem_somos
       resources :homes
+      post 'orcamento_send', to: 'orcamento#send_orcamento'
       get 'produtos_all', to: 'produtos#all_produtos'
       get 'telefone_principal', to: 'telefones#principal'
       get 'email_principal', to: 'emails#principal'
