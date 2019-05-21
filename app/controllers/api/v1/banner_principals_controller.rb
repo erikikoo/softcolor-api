@@ -4,8 +4,7 @@ class BannerPrincipalsController < ApplicationController
   skip_before_action :authenticate_request, only: [:index]
   
   # GET /banner_principals
-  def index
-    
+  def index    
     
     getBanners()
     
@@ -43,8 +42,7 @@ class BannerPrincipalsController < ApplicationController
   end
 
   # DELETE /banner_principals/1
-  def destroy
-    @banner_principal.image.purge
+  def destroy   
 
     @banner_principal.destroy
   end
