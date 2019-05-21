@@ -1,8 +1,9 @@
 class OrcamentoMailer < ApplicationMailer
  
   def send_orcamento
-    @greeting = "Hi"
+    @orcamento = params[:orcamento]   
 
+    puts @orcamento
     mail to: "erikikoo@hotmail.com"
   end
 end
