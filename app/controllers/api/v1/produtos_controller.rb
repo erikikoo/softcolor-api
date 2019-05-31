@@ -1,8 +1,8 @@
 module Api::V1
 class ProdutosController < ApplicationController  
   
-  before_action :set_produto, only: [:update, :destroy]
-  skip_before_action :authenticate_request, only: [:index, :all_produtos, :show]
+  before_action :set_produto, only: [:update, :destroy, :show]
+  skip_before_action :authenticate_request, only: [:index, :all_produtos, :show, :search]
 
   # GET /produtos
   def index    
@@ -16,10 +16,7 @@ class ProdutosController < ApplicationController
   end
 
   # GET /produtos/1
-  def show
-    if params[:id]    
-      @produto = Produto.find_by(id: params[:id])
-    end
+  def show    
     render json: @produto
   end
 
@@ -47,6 +44,11 @@ class ProdutosController < ApplicationController
   # DELETE /produtos/1
   def destroy
     @produto.destroy
+  end
+
+  def search
+    @produto = Produto.find_by('title LIKE ?', "%#{params[:title]}%")
+    render json: @produto
   end
 
   private
