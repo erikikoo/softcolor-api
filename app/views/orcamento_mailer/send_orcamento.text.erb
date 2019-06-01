@@ -1,3 +1,93 @@
-Orcamento#send
-teste de envio
-<%= @greeting %>, find me in app/views/orcamento_mailer/send.text.erb
+<section class="email__container">
+  <h1 class='text-center'>Solicitação de Orçamento - Site</h1>
+  
+  <section class="dados_empresa">
+    <fieldset>     
+      
+      <h1><strong>Empresa: </strong><%= @orcamento['empresa'].capitalize %></h1>
+      
+      <h2>Contato</h2>
+      <ul>
+          <li><strong>E-mail: </strong> <%= @orcamento['email'] %></li>
+          <li><strong>Telefone: </strong> <%= @orcamento['tel_fixo'] %> </li>  
+          <li><strong>Celular: </strong> <%= @orcamento['tel_celular'] %></li>
+          <li><strong>Área de Atuação: </strong> <%= @orcamento['atuacao'] %> </li>   
+      </ul>
+      
+      
+      <h2>Especificações do Orçamento</h2>
+
+      <strong>Produto: </strong> <%= @orcamento['produto'] %>
+      <hr>
+
+      <h3>Material</h3>
+      <p><%= @orcamento['material'] %></p>
+      <hr>
+
+       
+      <h3>Adesivo</h3>
+      <p><%= @orcamento['adesivo'].capitalize %></p>
+      <hr>
+
+      <h3>Medidas</h3>
+      
+      <p></p>  
+      
+      <h4><strong>Frente</strong></h4>
+      <strong>Altura:</strong> <%= @orcamento['medida_frente_altura'] %>
+      <strong>Largura:</strong> <%= @orcamento['medida_frente_largura'] %>
+
+      <h4><strong>Verso</strong></h4>
+      <strong>Altura:</strong> <%= @orcamento['medida_verso_altura'] %>
+      <strong>Largura:</strong> <%= @orcamento['medida_verso_largura'] %>
+
+      <h4><strong>Tipo de Corte</strong></h4>
+      <p>
+        <%= @orcamento['corte'] %>
+      </p>
+      <hr>    
+
+      <h3>Quantidade de cores:</h3>
+      <strong>Frente</strong>
+      <strong>Qnt:</strong>  <%= @orcamento['qnt_cores_frente'] %>    
+      <br>
+      <strong>Verso</strong>
+      <strong>Qnt:</strong> <%= @orcamento['qnt_cores_verso'] %>    
+      
+      <h4><strong>Processos</strong></h4>
+      <p><%= @orcamento['Letter-Press'] ? 'Letter-Press' : '' %></p> 
+      <p><%= @orcamento['Flexografia'] ? 'Flexográfia' : '' %></p> 
+      <p><%= @orcamento['Serigrafia'] ? 'Serigrafia' : '' %></p> 
+      <p><%= @orcamento['Digital'] ? 'Digital' : '' %></p> 
+      
+      <hr>
+
+      <h3>Hot Stamping:</h3>
+      
+      <strong>Possui hot stamping: </strong> <%=  @orcamento['cores_hot_stamping'] %>
+      <br>
+      <strong>Cor: </strong> <%=  @orcamento['hot_stamping_cor'] %>
+      
+      <hr>
+      <h4><strong>Medidas</strong></h4>
+      
+      <strong>Altura:</strong> <%=  @orcamento['hot_stamping_medida_altura'] %>
+      <strong>Largura:</strong> <%=  @orcamento['hot_stamping_medida_largura'] %>
+
+      <hr>
+
+      <h3>Rotulagem</h3>
+      <p><%=  @orcamento['rotulagem'] %></p>
+      <p><%=  @orcamento['rotulagem_sequencia'] %></p>
+      
+      <hr>
+
+      <h3>Observações:</h3>
+    
+       <p><%=  @orcamento['observacoes'] %></p> 
+      
+    </fieldset>
+
+
+  </section>
+</section>

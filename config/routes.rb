@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       resources :homes
       get 'search_product/:title', to: 'produtos#search'
       post 'orcamento_send', to: 'orcamento#send_orcamento'
+      post 'trabalhe_conosco_send', to: 'trabalhe_conosco#send_trabalhe_conosco'
       get 'produtos_all', to: 'produtos#all_produtos'
       get 'telefone_principal', to: 'telefones#principal'
       get 'email_principal', to: 'emails#principal'

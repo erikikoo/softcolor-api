@@ -1,0 +1,24 @@
+<style>
+  .email__container {
+    width: 100%;
+  }
+
+  .text-center {
+    text-aling: center;
+  }
+
+</style>
+
+<section class="email__container">
+  <h1 class='text-center'>Curriculo <%= @trabalhe_conosco['nome'] %> <%= @trabalhe_conosco['sobrenome']  %> - Site</h1>
+  
+  <section class="dados_empresa">
+    <fieldset>          
+      
+      <h2>Contato</h2>
+      <ul>        
+          <li><strong>Telefone: </strong> <%= @trabalhe_conosco['tel_fixo'] %> </li>  
+          <li><strong>Celular: </strong> <%= @trabalhe_conosco['tel_celular'] %></li>
+          <li><strong>Área de Atuação: </strong> <%= @trabalhe_conosco['area_pretendida'] %> </li>   
+      </ul>
+   
