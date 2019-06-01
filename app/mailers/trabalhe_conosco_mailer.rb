@@ -2,7 +2,7 @@ class TrabalheConoscoMailer < ApplicationMailer
     def send_trabalhe_conosco
         @orcamento = params[:orcamento]    
         
-        if @orcamento['arte']
+        unless params[:orcamento][:arte].nil?
             ext = @orcamento['arte'].original_filename.split(".").last
         
             attachments["curriculo.#{ext}"] = File.read(@orcamento['curriculo'].path())
