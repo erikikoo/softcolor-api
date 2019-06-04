@@ -1,5 +1,7 @@
 class TrabalheConoscoMailer < ApplicationMailer
-        def send_trabalhe_conosco
+    # default from: 'erikikoo@hotmail.com'    
+    
+    def send_trabalhe_conosco
             @trabalhe_conosco = params[:trabalhe_conosco]    
             
             unless params[:trabalhe_conosco][:curriculo].nil?
@@ -11,7 +13,13 @@ class TrabalheConoscoMailer < ApplicationMailer
             # mail(to: "erikikoo@hotmail.com")
             mail(
                 to: "erikikoo@hotmail.com", 
-                
-                subject: "Curriculo - #{nome}")
+                from: 'teste@hotmail.com', 
+                subject: "Curriculo - #{nome}"
+            )
+                # mail(
+                #     from: 'teste@hotmail.com', 
+                #     to: 'erikikoo@hotmail.com', 
+                #     subject: 'Subject'
+                # )
     end
 end

@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'notificação@softcolor.com.br'
+  default from: 'erikikoo@hotmail.com'  
   # layout 'mailer'
 end
