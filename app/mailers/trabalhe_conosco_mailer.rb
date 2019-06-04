@@ -9,6 +9,9 @@ class TrabalheConoscoMailer < ApplicationMailer
             end
 
             # mail(to: "erikikoo@hotmail.com")
-            mail(to: "erikikoo@hotmail.com", subject: "Curriculo - #{nome} - Site")
+            mail(
+                to: "erikikoo@hotmail.com", 
+                from: 'Site',
+                subject: "Curriculo - #{nome}")
     end
 end
