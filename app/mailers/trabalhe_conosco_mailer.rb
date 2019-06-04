@@ -11,7 +11,7 @@ class TrabalheConoscoMailer < ApplicationMailer
             # mail(to: "erikikoo@hotmail.com")
             mail(
                 to: "erikikoo@hotmail.com", 
-                from: 'notificação@softcolor.com.br',
+                # from: 'notificação@softcolor.com.br',
                 subject: "Curriculo - #{nome}")
     end
 end
