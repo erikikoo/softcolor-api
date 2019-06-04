@@ -8,7 +8,7 @@ class OrcamentoMailer < ApplicationMailer
 
       attachments["arte.#{ext}"] = File.read(@orcamento['arte'].path())
     end
-    mail(to: "erikikoo@hotmail.com", subject: 'Solicitação de orçamento - Site')
+    mail(from: @orcamento['email'], to: "erikikoo@hotmail.com", subject: 'Solicitação de orçamento - Site')
   end
 end
 
