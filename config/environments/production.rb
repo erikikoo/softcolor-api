@@ -88,18 +88,18 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
-    # address: "smtp.gmail.com",
-    # port: 587,     
-    # user_name: '240382013@eniac.edu.br',
-    # password: 'HayHelena',
-    # authentication: "plain",
-    # sdomain: 'gmail.com',
-    # enable_starttls_auto: true
-    address: "smtp.sendgrid.net",
-    port: 587,  
-    user_name: 'apikey',
-    password: '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',
-    authentication: "plain",    
+    address: "smtp.gmail.com",
+    port: 587,     
+    user_name: '240382013@eniac.edu.br',
+    password: 'HayHelena',
+    authentication: "plain",
+    sdomain: 'gmail.com',
     enable_starttls_auto: true
+    # address: "smtp.sendgrid.net",
+    # port: 587,  
+    # user_name: 'softcolor',
+    # password: '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',
+    # authentication: "plain",    
+    # enable_starttls_auto: true
   }
 end
