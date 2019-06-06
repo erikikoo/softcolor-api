@@ -7,12 +7,10 @@ class OrcamentoMailer < ApplicationMailer
       ext = @orcamento['arte'].original_filename.split(".").last         
 
       attachments["arte.#{ext}"] = File.read(@orcamento['arte'].path())
-    end
-    email = ["marion@softcolor.com.br", "artes@softcolor.com.br", "erikikoo@hotmail.com"]
+    end    
     mail(
       from: @orcamento['email'], 
-      to: email,
-           
+      to: "erikikoo@hotmail.com",           
       subject: 'Solicitação de orçamento - Site')
   end
 end
