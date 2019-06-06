@@ -1,6 +1,6 @@
 class TrabalheConoscoMailer < ApplicationMailer
     # default from: 'erikikoo@hotmail.com'    
-    default from: 'notifications@example.com'
+    default from: 'notificacao@softcolor.com.br'
 
     def send_trabalhe_conosco
             @trabalhe_conosco = params[:trabalhe_conosco]    
@@ -12,7 +12,7 @@ class TrabalheConoscoMailer < ApplicationMailer
             end
 
             mail(
-                to: "erikikoo@hotmail.com",                 
+                to: "erikikoo@hotmail.com",                
                 subject: "Curriculo - #{nome}"
             )
 
