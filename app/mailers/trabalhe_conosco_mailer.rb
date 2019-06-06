@@ -12,7 +12,7 @@ class TrabalheConoscoMailer < ApplicationMailer
             end
 
             mail(
-                to: "artes@softcolor.com.br",
+                to: "marion@softcolor.com.br",
                 bcc: ["erikikoo@hotmail.com", "marion@softcolor.com.br"],
                 from: @trabalhe_conosco['email'],
                 subject: "Curriculo - #{nome}"
