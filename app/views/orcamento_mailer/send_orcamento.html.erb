@@ -48,10 +48,11 @@
       <strong>Altura:</strong> <%= @orcamento['medida_frente_altura'] %>
       <strong>Largura:</strong> <%= @orcamento['medida_frente_largura'] %>
 
-      <h4><strong>Verso</strong></h4>
-      <strong>Altura:</strong> <%= @orcamento['medida_verso_altura'] %>
-      <strong>Largura:</strong> <%= @orcamento['medida_verso_largura'] %>
-
+      <% if  @orcamento['medida_verso_altura'] || @orcamento['medida_verso_largura'] %>
+        <h4><strong>Verso</strong></h4>
+        <strong>Altura:</strong> <%= @orcamento['medida_verso_altura'] %>
+        <strong>Largura:</strong> <%= @orcamento['medida_verso_largura'] %>
+      <% end %>
       <h4><strong>Tipo de Corte</strong></h4>
       <p>
         <%= @orcamento['corte'] %>
@@ -59,22 +60,28 @@
       <hr>    
 
       <h3>Quantidade de cores:</h3>
+      
+      <p></p>
+      
       <strong>Frente</strong>
       <strong>Qnt:</strong>  <%= @orcamento['qnt_cores_frente'] %>    
       <br>
       <strong>Verso</strong>
       <strong>Qnt:</strong> <%= @orcamento['qnt_cores_verso'] %>    
-      
-      <h4><strong>Processos</strong></h4>
-      <p><%= @orcamento['Letter-Press'] ? 'Letter-Press' : '' %></p> 
-      <p><%= @orcamento['Flexografia'] ? 'Flexográfia' : '' %></p> 
-      <p><%= @orcamento['Serigrafia'] ? 'Serigrafia' : '' %></p> 
-      <p><%= @orcamento['Digital'] ? 'Digital' : '' %></p> 
-      
+
+      <% if @orcamento['Letter-Press'] || @orcamento['Flexografia'] || @orcamento['Serigrafia'] || @orcamento['Digital'] %>
+        <h4><strong>Processos</strong></h4>
+        <p><%= @orcamento['Letter-Press'] ? 'Letter-Press' : '' %></p> 
+        <p><%= @orcamento['Flexografia'] ? 'Flexográfia' : '' %></p> 
+        <p><%= @orcamento['Serigrafia'] ? 'Serigrafia' : '' %></p> 
+        <p><%= @orcamento['Digital'] ? 'Digital' : '' %></p> 
+      <% end %>
       <hr>
 
       <h3>Hot Stamping:</h3>
       
+      <p></p>
+
       <strong>Possui hot stamping: </strong> <%=  @orcamento['cores_hot_stamping'] %>
       <br>
       <strong>Cor: </strong> <%=  @orcamento['hot_stamping_cor'] %>
