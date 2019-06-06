@@ -69,13 +69,13 @@
       <strong>Verso</strong>
       <strong>Qnt:</strong> <%= @orcamento['qnt_cores_verso'] %>    
 
-      <% if @orcamento['Letter-Press'] || @orcamento['Flexografia'] || @orcamento['Serigrafia'] || @orcamento['Digital'] %>
+      
         <h4><strong>Processos</strong></h4>
         <p><%= @orcamento['Letter-Press'] ? 'Letter-Press' : '' %></p> 
         <p><%= @orcamento['Flexografia'] ? 'Flexográfia' : '' %></p> 
         <p><%= @orcamento['Serigrafia'] ? 'Serigrafia' : '' %></p> 
         <p><%= @orcamento['Digital'] ? 'Digital' : '' %></p> 
-      <% end %>
+      
       <hr>
 
       <h3>Hot Stamping:</h3>
