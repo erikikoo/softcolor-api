@@ -1,6 +1,6 @@
 class TrabalheConoscoMailer < ApplicationMailer
     # default from: 'erikikoo@hotmail.com'    
-    default from: 'notificacao@softcolor.com.br'
+    default from: 'Site'
 
     def send_trabalhe_conosco
             @trabalhe_conosco = params[:trabalhe_conosco]    
