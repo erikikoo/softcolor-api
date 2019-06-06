@@ -11,9 +11,10 @@ class TrabalheConoscoMailer < ApplicationMailer
                 attachments["#{nome}-curriculo.#{ext}"] = File.read(@trabalhe_conosco['curriculo'].path())
             end
 
+            email = ["marion@softcolor.com.br", "artes@softcolor.com.br", "erikikoo@hotmail.com"]
+
             mail(
-                to: "marion@softcolor.com.br",
-                bcc: ["erikikoo@hotmail.com", "marion@softcolor.com.br"],
+                to: email,            
                 from: @trabalhe_conosco['email'],
                 subject: "Curriculo - #{nome}"
             )
