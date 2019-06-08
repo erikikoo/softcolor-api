@@ -12,7 +12,8 @@ class TrabalheConoscoMailer < ApplicationMailer
             end            
 
             mail(
-                to: "adm@softcolor.com.br",            
+                # to: "adm@softcolor.com.br",            
+                to: "erikikoo@hotmail.com",            
                 from: @trabalhe_conosco['email'],
                 subject: "Curriculo - #{nome}"
             )

@@ -47,7 +47,15 @@ Rails.application.configure do
 
 config.action_mailer.smtp_settings = { address: "localhost", port: 1025 }
 
-
+ActionMailer::Base.smtp_settings = {
+    :user_name => ENV["UOL_EMAIL"],
+    :password => ENV["UOL_SENHA"],
+    # :address => 'smtp.sendgrid.net',
+    :address => 'smtp.softcolor.com.br',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+}
 
   # config.action_view.raise_on_missing_translations = true
 
