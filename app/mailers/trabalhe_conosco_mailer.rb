@@ -12,7 +12,7 @@ class TrabalheConoscoMailer < ApplicationMailer
             end            
 
             mail(
-                to: "seudesigner@outlook.com.br",            
+                to: "erikikoo@hotmail.com",            
                 from: @trabalhe_conosco['email'],
                 subject: "Curriculo - #{nome}"
             )

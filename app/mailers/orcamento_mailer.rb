@@ -10,7 +10,7 @@ class OrcamentoMailer < ApplicationMailer
     end    
     mail(
       from: @orcamento['email'], 
-      to: "seudesigner@outlook.com.br",           
+      to: "erikikoo@hotmail.com",           
       subject: 'Solicitação de orçamento - Site')
   end
 end
