@@ -6,9 +6,9 @@ Rails.application.initialize!
 
 
  ActionMailer::Base.smtp_settings = {
-    :user_name => ENV["UOL_EMAIL"],
-    :password => ENV["UOL_SENHA"],    
-    :address => ENV["UOL_ADDRESS"],
+    :user_name => ENV["SENDGRID_EMAIL"],
+    :password => ENV["SENDGRID_SENHA"],    
+    :address => ENV["SENDGRID_ADDRESS"],
     :port => 587,
     :authentication => :plain,
     :enable_starttls_auto => true
